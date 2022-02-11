@@ -1,6 +1,6 @@
 import {axiosService} from "./axios.service";
-import {urls} from "../configs/urls";
+import {apiKey, urls} from "../configs/urls";
 
 export const movieService = {
-    getAll: () => axiosService.get(urls.movies).then(value => value.data)
+    getAll: () => axiosService.get(`${urls.movies}?api_key=${apiKey}`).then(value => value.data)
 }

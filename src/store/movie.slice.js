@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {movieService} from "../services";
 
 export const getAllMovies = createAsyncThunk(
@@ -21,6 +22,10 @@ const movieSlice = createSlice({
     },
     extraReducers: {
 
+        [getAllMovies.pending]:(state) => {
+            state.status = 'pending'
+
+        },
         [getAllMovies.fulfilled]: (state, action) => {
             state.status = 'fulfilled'
             state.movies = action.payload
