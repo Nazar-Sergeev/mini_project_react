@@ -7,12 +7,12 @@ export const getAllMovies = createAsyncThunk(
 
     async (page) => {
         try {
-        return await movieService.getAll({page})
-            
-        }catch (e){
+            return await movieService.getAll(page)
+
+        } catch (e) {
             console.log(e)
         }
-        
+
     }
 );
 
@@ -20,15 +20,24 @@ const movieSlice = createSlice({
 
     name: 'movieSlice',
 
-    reducers: {},
-
     initialState: {
         movies: [],
-        status: null
+        status: null,
+        page: 2
     },
+    reducers: {
+        getPageMovie: (state, action) => {
+            if (action.payload === 'previous') {
+                state.page = state.page - 1
+            }else if (action.payload === 'next') {
+                state.page = state.page + 1;
+            }
+        }
+    },
+
     extraReducers: {
 
-        [getAllMovies.pending]:(state) => {
+        [getAllMovies.pending]: (state) => {
             state.status = 'pending'
 
         },
@@ -41,4 +50,5 @@ const movieSlice = createSlice({
 
 const movieReducer = movieSlice.reducer;
 
+export const {getPageMovie} = movieSlice.actions
 export default movieReducer;
