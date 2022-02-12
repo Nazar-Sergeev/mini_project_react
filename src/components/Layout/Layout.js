@@ -6,20 +6,24 @@ import {getAllMovies, getPageMovie} from "../../store";
 
 const Layout = () => {
 
-    const { page} = useSelector(state => state.movies);
+    const {page} = useSelector(state => state.movies);
+
+    // console.log(page)
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log("dsfsdfsdfsdfsdfsdf")
-        dispatch(getAllMovies)
-    },[])
+        console.log("LAYOUT")
+        dispatch(getAllMovies(page))
+    },[page])
 
     return (
         <div>
             <MoviePage/>
             <div style={{display:'flex', justifyContent:'center'}}>
-                <button style={{marginRight:'10px'}}>previous page</button>
-                <button onClick={() => dispatch(getPageMovie(page,'next'))}>next page</button>
+                <button style={{marginRight:'10px'}}
+                        onClick={() => dispatch(getPageMovie({data:'previous'}))}>previous page</button>
+                <button onClick={() => dispatch(getPageMovie({data:'next'}))}>next page</button>
             </div>
         </div>
     );

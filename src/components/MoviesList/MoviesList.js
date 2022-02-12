@@ -11,13 +11,13 @@ const MoviesList = () => {
     const dispatch = useDispatch();
 
     const {genres: {genres: arrayGenre}} = useSelector(state => state.genres);
-    console.log(arrayGenre)
+    // console.log(arrayGenre)
 
-    console.log(movies)
+    // console.log(movies)
 
     useEffect(() => {
-
-        dispatch(getAllMovies())
+        // console.log('Movie List')
+        // dispatch(getAllMovies())
         dispatch(getAllGenres())
 
     }, []);
@@ -27,7 +27,7 @@ const MoviesList = () => {
             <div>
                 {arrayGenre && arrayGenre.map(el => <Genre key={el.id} item={el}/>)}
             </div>
-            <div style={{display: 'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
+            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
                 {movies && movies.map(res => <MoviesListCard key={res.id} movie={res}/>)}
             </div>
         </div>

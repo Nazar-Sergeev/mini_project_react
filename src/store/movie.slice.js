@@ -23,13 +23,17 @@ const movieSlice = createSlice({
     initialState: {
         movies: [],
         status: null,
-        page: 2
+        page: 1
     },
     reducers: {
         getPageMovie: (state, action) => {
-            if (action.payload === 'previous') {
+            console.log(action.payload.data)
+            if (action.payload.data === 'previous') {
                 state.page = state.page - 1
-            }else if (action.payload === 'next') {
+                if (state.page < 1) {
+                    state.page = 1
+                }
+            } else if (action.payload.data === 'next') {
                 state.page = state.page + 1;
             }
         }
