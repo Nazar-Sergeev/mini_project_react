@@ -2,7 +2,11 @@ import {urlImage} from "../../configs/urls";
 
 const MoviesListCard = ({movie}) => {
 
-    const {original_title, overview, poster_path, vote_average, vote_count, release_date} = movie;
+    const {original_title, overview, poster_path, vote_average, vote_count, release_date, title} = movie;
+
+    // if (data.movie) {
+    //         newArray = newArray.filter(el => el.toLowerCase().includes(data.movie.toLowerCase()))
+    //     }
 
     return (
         <div style={{width: '300px', border:'1px solid black', marginBottom:'5px'}}>
@@ -14,6 +18,9 @@ const MoviesListCard = ({movie}) => {
                 <p>Rating: {vote_average} - total votes: {vote_count}</p>
                 <p>{overview}</p>
                 <p>Release date: {release_date}</p>
+            </div>
+            <div>
+                <button>details movie</button>
             </div>
         </div>
     );

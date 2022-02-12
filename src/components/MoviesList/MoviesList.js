@@ -8,12 +8,9 @@ import {Genre} from "../Genre/Genre";
 const MoviesList = () => {
 
     const {movies: {results: movies}} = useSelector(state => state.movies);
-    const dispatch = useDispatch();
-
     const {genres: {genres: arrayGenre}} = useSelector(state => state.genres);
-    // console.log(arrayGenre)
 
-    // console.log(movies)
+    const dispatch = useDispatch();
 
     useEffect(() => {
         // console.log('Movie List')

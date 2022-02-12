@@ -1,6 +1,6 @@
-import {Header, Layout} from "./components";
+import {Header} from "./components";
 import {Route, Routes} from "react-router-dom";
-import {GenrePage, MoviePage} from "./pages";
+import {HomePage, MoviesPage} from "./pages";
 
 const App = () => {
 
@@ -9,9 +9,8 @@ const App = () => {
             <Header/>
             <hr/>
             <Routes>
-                <Route index element={<Layout/>}/>
-                <Route path={'home'} element={<GenrePage/>}/>
-                <Route path={'movie'} element={<MoviePage/>}/>
+                <Route index element={<HomePage/>}/>
+                <Route path={'movies'} element={<MoviesPage/>}/>
             </Routes>
         </div>
     );

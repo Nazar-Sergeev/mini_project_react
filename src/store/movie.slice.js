@@ -27,7 +27,6 @@ const movieSlice = createSlice({
     },
     reducers: {
         getPageMovie: (state, action) => {
-            console.log(action.payload.data)
             if (action.payload.data === 'previous') {
                 state.page = state.page - 1
                 if (state.page < 1) {
@@ -36,6 +35,13 @@ const movieSlice = createSlice({
             } else if (action.payload.data === 'next') {
                 state.page = state.page + 1;
             }
+        },
+        getFilter: (state, action) => {
+            console.log(action.payload.data)
+            // if (action.payload.data) {
+            //     state.movies = state.movies.map(el => console.log(el))
+            //     state.movies = newArray
+            // }
         }
     },
 
@@ -54,5 +60,5 @@ const movieSlice = createSlice({
 
 const movieReducer = movieSlice.reducer;
 
-export const {getPageMovie} = movieSlice.actions
+export const {getPageMovie, getFilter} = movieSlice.actions
 export default movieReducer;
