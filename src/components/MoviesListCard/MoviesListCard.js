@@ -1,12 +1,12 @@
 import {urlImage} from "../../configs/urls";
+import {Link} from "react-router-dom";
 
 const MoviesListCard = ({movie}) => {
 
-    const {original_title, overview, poster_path, vote_average, vote_count, release_date, title} = movie;
+    const {id,original_title, overview, poster_path, vote_average, vote_count, release_date, genre_ids} = movie;
 
-    // if (data.movie) {
-    //         newArray = newArray.filter(el => el.toLowerCase().includes(data.movie.toLowerCase()))
-    //     }
+    // const {id,original_title, overview, poster_path, vote_average, vote_count, release_date, genre_ids} = getMoviesGenre
+
 
     return (
         <div style={{width: '300px', border:'1px solid black', marginBottom:'5px'}}>
@@ -20,7 +20,9 @@ const MoviesListCard = ({movie}) => {
                 <p>Release date: {release_date}</p>
             </div>
             <div>
-                <button>details movie</button>
+                <Link to={`/movies/${id.toString()}`} state={{id, original_title, genre_ids}}>
+                    <button>details movie</button>
+                </Link>
             </div>
         </div>
     );
