@@ -14,11 +14,11 @@ const App = () => {
             <hr/>
             <Routes>
 
-                <Route path={'movies'} element={<MoviesPage/>}>
+                <Route path={'/movies'} element={<MoviesPage/>}>
                     <Route path={':id'} element={<MoviesDetails/>}/>
                 </Route>
 
-                <Route path={'genres'} element={<GenrePage/>}>
+                <Route path={'/genres'} element={<GenrePage/>}>
                     <Route path={':genre_id'} element={<MoviesByGenre/>}/>
                 </Route>
 

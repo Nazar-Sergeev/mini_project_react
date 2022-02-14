@@ -1,7 +1,13 @@
+import {Link} from "react-router-dom";
+
 const Genre = ({genre}) => {
+
+    const {id, name} = genre
     return (
-        <div style={{border:'1px solid black', marginBottom:'5px'}}>
-            <h2>{genre.name}</h2>
+        <div>
+            <Link to={`/genres/${id}`} state={id} >
+                <button>{name}</button>
+            </Link>
         </div>
     );
 };

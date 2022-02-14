@@ -1,9 +1,17 @@
 import {urlImage} from "../../configs/urls";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const MoviesListCard = ({movie}) => {
+    // const {genres:{genres}} = useSelector(state => state.genres);
 
     const {id,original_title, overview, poster_path, vote_average, vote_count, release_date, genre_ids} = movie;
+
+    // const getMoviesGenre = (genre_ids) => {
+    //     return genre_ids.map(genreId => {
+    //         return genres.filter(genre => genre.id === genreId)[0].name
+    //     })
+    // }
 
     // const {id,original_title, overview, poster_path, vote_average, vote_count, release_date, genre_ids} = getMoviesGenre
 
