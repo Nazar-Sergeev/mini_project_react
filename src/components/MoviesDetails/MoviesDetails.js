@@ -1,52 +1,21 @@
 import {useLocation} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+
+import {urlImage} from "../../configs/urls";
 
 const MoviesDetails = () => {
 
-    const {genres:{genres}} = useSelector(state => state.genres);
-    console.log(genres)
-
     const state = useLocation();
 
-// console.log(genres)
-
-    // const moviesDetails = state.state
-
-    const {genre_ids,original_title} = state.state
-
-    console.log(genre_ids)
-
-    // console.log(original_title)
-
-// console.log(genre_ids)
-
-
-
-
-//     const getMoviesGenre = (genre_ids) => {
-//         return genre_ids.map(genreId => {
-//             console.log(genreId)
-//             return genres.filter(genre => genre.id === genreId)[0].name
-//         })
-//     }
-//
-//     const {movieGenres, setMovieGenres} = useState([]);
-// console.log(movieGenres)
-//
-//     useEffect(() => {
-//         setMovieGenres(getMoviesGenre(genre_ids))
-//     },[genre_ids])
-
+    const {original_title, overview, release_date, poster_path} = state.state
 
     return (
         <div>
-            {/*{movieGenres.map(movieGenre => <div>{movieGenre}</div>)}*/}
-            MoviesDetails
+            <img src={`${urlImage}/${poster_path}`} alt={original_title}/>
             <h2>{original_title}</h2>
+            <h3>Release date: {release_date}</h3>
+            <p>{overview}</p>
         </div>
     );
 };
-
 
 export {MoviesDetails};

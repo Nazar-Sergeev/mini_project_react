@@ -1,23 +1,13 @@
-import {urlImage} from "../../configs/urls";
 import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+
+import {urlImage} from "../../configs/urls";
 
 const MoviesListCard = ({movie}) => {
-    // const {genres:{genres}} = useSelector(state => state.genres);
 
-    const {id,original_title, overview, poster_path, vote_average, vote_count, release_date, genre_ids} = movie;
-
-    // const getMoviesGenre = (genre_ids) => {
-    //     return genre_ids.map(genreId => {
-    //         return genres.filter(genre => genre.id === genreId)[0].name
-    //     })
-    // }
-
-    // const {id,original_title, overview, poster_path, vote_average, vote_count, release_date, genre_ids} = getMoviesGenre
-
+    const {id, original_title, overview, poster_path, vote_average, vote_count, release_date} = movie;
 
     return (
-        <div style={{width: '300px', border:'1px solid black', marginBottom:'5px'}}>
+        <div style={{width: '300px', border: '1px solid black', marginBottom: '5px'}}>
             <div>
                 <img src={`${urlImage}${poster_path}`} alt={original_title}/>
             </div>
@@ -28,13 +18,12 @@ const MoviesListCard = ({movie}) => {
                 <p>Release date: {release_date}</p>
             </div>
             <div>
-                <Link to={`/movies/${id.toString()}`} state={{id, original_title, genre_ids}}>
+                <Link to={`/movies/${id.toString()}`} state={{original_title, overview, release_date, poster_path}}>
                     <button>details movie</button>
                 </Link>
             </div>
         </div>
     );
 };
-
 
 export {MoviesListCard};

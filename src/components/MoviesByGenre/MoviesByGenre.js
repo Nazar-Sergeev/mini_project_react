@@ -1,9 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
-import {getAllGenresById, getGenreId, getMovieByPage} from "../../store/movieByGenre.slice";
 import {useEffect} from "react";
+
 import {MovieByGenre} from "../MovieByGenre/MovieByGenre";
-import {getPage} from "../../store";
+import {getAllGenresById, getGenreId, getMovieByPage} from "../../store/movieByGenre.slice";
 
 const MoviesByGenre = () => {
 
@@ -38,12 +38,12 @@ const MoviesByGenre = () => {
                     movieByGenres && movieByGenres.map(movie => <MovieByGenre key={movie.id} movie={movie}/>)
                 }
             </div>
-                <div style={{display: 'flex', justifyContent: 'center', gap: '10px'}}>
-                    <button
-                        onClick={() => dispatch(getMovieByPage({data: 'previous'}))}>previous page
-                    </button>
-                    <button onClick={() => dispatch(getMovieByPage({data: 'next'}))}>next page</button>
-                </div>
+            <div style={{display: 'flex', justifyContent: 'center', gap: '10px'}}>
+                <button
+                    onClick={() => dispatch(getMovieByPage({data: 'previous'}))}>previous page
+                </button>
+                <button onClick={() => dispatch(getMovieByPage({data: 'next'}))}>next page</button>
+            </div>
         </div>
     );
 };

@@ -5,7 +5,7 @@ const MovieByGenre = ({movie}) => {
     const {original_title, overview, poster_path, vote_average, vote_count, release_date} = movie;
 
     return (
-        <div style={{width: '300px', border:'1px solid black', marginBottom:'5px'}}>
+        <div style={{width: '300px', border: '1px solid black', marginBottom: '5px'}}>
             <div>
                 <img src={`${urlImage}${poster_path}`} alt={original_title}/>
             </div>

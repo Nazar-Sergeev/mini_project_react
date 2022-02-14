@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {genreService} from "../services/genre.service";
 
+import {genreService} from "../services/genre.service";
 
 export const getAllGenresById = createAsyncThunk(
     'getAllGenresById/movieByGenreSlice',
@@ -16,7 +16,7 @@ const movieByGenreSlice = createSlice({
 
     initialState: {
         movieByGenres: [],
-        page:1,
+        page: 1,
         genreId: 0,
         status: null
     },
@@ -24,7 +24,7 @@ const movieByGenreSlice = createSlice({
         getGenreId: (state, action) => {
             state.genreId = action.payload.genre_id
         },
-        getMovieByPage:(state, action) => {
+        getMovieByPage: (state, action) => {
             if (action.payload.data === 'previous') {
                 state.page = state.page - 1
                 if (state.page < 1) {

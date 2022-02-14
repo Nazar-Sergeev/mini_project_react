@@ -5,7 +5,7 @@ const Genre = ({genre}) => {
     const {id, name} = genre
     return (
         <div>
-            <Link to={`/genres/${id}`} state={id} >
+            <Link to={`/genres/${id}`} state={id}>
                 <button>{name}</button>
             </Link>
         </div>

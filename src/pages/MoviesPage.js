@@ -30,5 +30,4 @@ const MoviesPage = () => {
     );
 };
 
-
 export {MoviesPage};
